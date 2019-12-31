@@ -6,6 +6,8 @@ class ViewController: UIViewController {
     
     var emailField: String?
     
+    let url: String = "http://10.0.1.8/datasets.php?email="
+    
     lazy var deviceListTableView: UITableView = {
         
         let tableView = UITableView()
@@ -32,7 +34,9 @@ class ViewController: UIViewController {
         
         setupConstraintsForTable()
         
-        getDataFromUrl(emailField!)
+        self.results = Results.all(email: emailField!, from: self.url)!
+        
+       // getDataFromUrl(emailField!)
     }
     
     fileprivate func getDataFromUrl(_ forEmail: String) {
@@ -83,7 +87,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         cell?.textLabel?.text = results[indexPath.row].item_name
-        cell?.detailTextLabel?.text = results[indexPath.row].assigned_date
+        cell?.detailTextLabel?.text = "Assigned Date: " + results[indexPath.row].assigned_date
         
         return cell!
     }

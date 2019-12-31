@@ -17,6 +17,7 @@ class HomeViewController: UIViewController {
         emailField.font = UIFont.systemFont(ofSize: 15)
         emailField.borderStyle = UITextField.BorderStyle.roundedRect
         emailField.autocorrectionType = UITextAutocorrectionType.no
+        emailField.autocapitalizationType = UITextAutocapitalizationType.none
         emailField.placeholder = "Please Input Your Email"
         return emailField
     }()
