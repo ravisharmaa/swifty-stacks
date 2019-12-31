@@ -6,7 +6,7 @@ class ViewController: UIViewController {
     
     var emailField: String?
     
-    let url: String = "http://10.0.1.8/datasets.php?email="
+    let searchController: UISearchController = UISearchController(searchResultsController: nil)
     
     lazy var deviceListTableView: UITableView = {
         
@@ -20,6 +20,12 @@ class ViewController: UIViewController {
         
     }()
     
+    var filteredResults: [Results] = []
+    
+    var isSearchEmpty: Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,6 +34,18 @@ class ViewController: UIViewController {
         self.title = "Devices"
         
         view.backgroundColor = .white
+        
+        // set up for search controller
+        
+        //searchController.searchResultsUpdater = self
+        
+        searchController.searchBar.placeholder = "Search Devices"
+        
+        navigationItem.searchController = searchController
+        
+         definesPresentationContext = true
+        
+        
         
         // set up view
         view.addSubview(deviceListTableView)
@@ -95,3 +113,12 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
 }
 
+
+//extension ViewController: UISearchResultsUpdating {
+//    func updateSearchResults(for searchController: UISearchController) {
+//        <#code#>
+//    }
+//
+//
+//}
+//

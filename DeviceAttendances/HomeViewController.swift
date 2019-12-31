@@ -64,12 +64,16 @@ class HomeViewController: UIViewController {
             emailTextField.heightAnchor.constraint(equalToConstant: 40),
             searchButton.widthAnchor.constraint(equalToConstant: 160)
         ])
+        
+        NSLayoutConstraint.activate([
+            searchButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
     
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.distribution = .fill
         stackView.alignment = .center
-        stackView.spacing = 10
+        stackView.spacing = 15
         
         stackView.addArrangedSubview(emailTextField)
         stackView.addArrangedSubview(searchButton)
