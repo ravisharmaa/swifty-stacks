@@ -34,9 +34,9 @@ class ViewController: UIViewController {
         
         setupConstraintsForTable()
         
-        self.results = Results.all(email: emailField!, from: self.url)!
+        //self.results = Results.all(email: emailField!, from: self.url)!
         
-       // getDataFromUrl(emailField!)
+        getDataFromUrl(emailField!)
     }
     
     fileprivate func getDataFromUrl(_ forEmail: String) {
