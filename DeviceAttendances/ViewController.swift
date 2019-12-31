@@ -6,6 +6,8 @@ class ViewController: UIViewController {
     
     var emailField: String?
     
+    //let url: String = "http://10.0.1.8/datasets.php?email="
+    
     let searchController: UISearchController = UISearchController(searchResultsController: nil)
     
     lazy var deviceListTableView: UITableView = {
@@ -43,7 +45,7 @@ class ViewController: UIViewController {
         
         navigationItem.searchController = searchController
         
-         definesPresentationContext = true
+        definesPresentationContext = true
         
         
         
@@ -97,11 +99,11 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
+        
         var cell = tableView.dequeueReusableCell(withIdentifier: "cellId")
         
         if cell == nil {
-           cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cellId")
+            cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cellId")
         }
         
         cell?.textLabel?.text = results[indexPath.row].item_name
